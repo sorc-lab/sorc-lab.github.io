@@ -1,3 +1,5 @@
+![Hello World... Image!](/9bc734d15e601f537f61f4d135ac38ef.png)
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/sorc-lab/sorc-lab.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
