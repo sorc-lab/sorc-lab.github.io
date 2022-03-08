@@ -4,9 +4,11 @@
 Procedures covering common use cases, such as cloning an existing OS install from a small drive to a larger drive,
 zeroing out data on disks before recycling them, and creating bootable SD card images for Respberry Pi devices.
 
-- Cloning Disks
+
+- [Cloning Disks](#cloning-disks)
 - Zeroing Disks
 - Creating SD Card Images
+
 
 ## Cloning Disks
 :heavy_check_mark: Software: CloneZilla (bootable CD-ROM: CloneZilla Live 2.6.6-15 ISO)\
@@ -16,6 +18,12 @@ zeroing out data on disks before recycling them, and creating bootable SD card i
 :heavy_check_mark: Official CloneZilla project documentation: [CloneZilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
 
 :finnadie: BACK UP IMPORTANT DATA BEFORE FOLLOWING THIS PROCEDURE!
+
+![Windows Recovery Partition](/IMG-1910.png)
+![Windows Recovery Partition](/IMG-1911.png)
+![Windows Recovery Partition](/IMG-1912.png)
+
+![Windows Recovery Partition](/IMG-1892.png)
 
 ### Boot Into CloneZilla
 First, create a CloneZilla Live CD-ROM and boot into it via BIOS. This will differ a lot based on your hardware.
@@ -63,12 +71,20 @@ Say 'yes' to those warnings. Finally, it will ask if you want to clone over the 
 
 You should now be seeing a screen that will show you the cloning process. When finished, the machine will shutdown.
 
+
 ### Expanding Disk Partition (Windows)
 Even with the "Expert" option `-k1`, after booting into the new (larger) disk, the full size of disk shows only 118GB.
 This is because the Windows 10 `source` disk we used has a Windows Recovery Partition.
 
 
 ![Windows Recovery Partition](/Screenshot 2022-03-08 133142.png)
+
+The Windows Recovery partition is way bigger than it should be. On the `source` disk, that partion size is only 520MB.\
+Why did the clone to `target` make that partition so much larger? How to fix this?
+
+NOTE: My workstation does not have recovery partition, just delete it and expand the C:\ partition out into that sector.
+
+https://www.laptopmag.com/articles/erase-recovery-partition-windows
 
 
 
