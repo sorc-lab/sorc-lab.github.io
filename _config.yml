@@ -2,3 +2,5 @@ theme: jekyll-theme-hacker
 name: Sorc Lab
 title: null
 favicon: assets/pixelart-drawing.ico
+plugins:
+  - jemoji
