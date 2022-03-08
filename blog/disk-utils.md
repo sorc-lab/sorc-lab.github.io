@@ -63,7 +63,12 @@ Say 'yes' to those warnings. Finally, it will ask if you want to clone over the 
 
 You should now be seeing a screen that will show you the cloning process. When finished, the machine will shutdown.
 
+### Expanding Disk Partition (Windows)
+Even with the "Expert" option `-k1`, after booting into the new (larger) disk, the full size of disk shows only 118GB.
+This is because the Windows 10 `source` disk we used has a Windows Recovery Partition.
 
+
+![Windows Recovery Partition](/Screenshot 2022-03-08 133142.png)
 
 
 
