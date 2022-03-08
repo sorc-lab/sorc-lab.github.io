@@ -19,11 +19,11 @@ zeroing out data on disks before recycling them, and creating bootable SD card i
 
 :finnadie: BACK UP IMPORTANT DATA BEFORE FOLLOWING THIS PROCEDURE!
 
-![Windows Recovery Partition](/IMG-1910.png)
-![Windows Recovery Partition](/IMG-1911.png)
-![Windows Recovery Partition](/IMG-1912.png)
+![Windows Recovery Partition](/IMG-1910.jpg)
+![Windows Recovery Partition](/IMG-1911.jpg)
+![Windows Recovery Partition](/IMG-1912.jpg)
 
-![Windows Recovery Partition](/IMG-1892.png)
+![Windows Recovery Partition](/IMG-1892.jpg)
 
 ### Boot Into CloneZilla
 First, create a CloneZilla Live CD-ROM and boot into it via BIOS. This will differ a lot based on your hardware.
