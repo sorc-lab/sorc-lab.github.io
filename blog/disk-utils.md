@@ -3,7 +3,7 @@
 # Cloning Disks Using Clonezilla
 Clonezilla is an image that you can boot into at startup time that comes with a wide variety of disk tools. This
 procedure details steps to clone one disk to another, assuming the source disk is smaller or the same size as the
-target disk. You will be turning your PC into a disk cloning machine.
+target disk. **You will be turning your PC into a disk cloning machine.**
 
 :heavy_check_mark: CloneZilla (bootable CD-ROM: CloneZilla Live 2.6.6-15 ISO)\
 :heavy_check_mark: Windows 10 (free/unactivated)\
@@ -33,39 +33,22 @@ not the shell. Then, select `device-device` from the list of options.
 
 ![Choose device-device](/ocs-05-2-device-device-clone.png)
 
-On the next screen, choose `Expert` mode. This will be important later to get access to more options.
+- On the next screen, choose `Expert` mode. This will be important later to get access to more options.
+- Next, choose `disk_to_local_disk`. Then you will be shown a screen with your actual disks displayed.
 
-Next, choose `disk_to_local_disk`. Then you will be shown a screen with your actual disks displayed.
+:finnadie: WARNING: Make sure you choose the correct `source` disk here! This is the disk you want to clone from.
 
-:finnadie: WARNING: Make sure you choose the correct `source` disk here! This is the disk you want to clone.
-
-Here is an example of what this should look like. Your screen will look different:
 ```
 /dev/sda: ST3250318AS_ ST3250318AS_5VMPM1CY 250GB
 /dev/sdb: M4-CT128M4SSD2_ M4-CT128M4SSD2_00000000114708FF31FE 128GB
 ```
 
-Since we are doing a simple smaller-to-larger disk clone, we can identify our `source` disk easily as `/dev/sdb`.
+- Next, choose your `target` disk. In this example, there is only one option, `sda`. Your setup may differ.
+- Next, select `-sfsck`.
+- Next, check `-k1` from the advanced options and keep the default selections.
+- Finally, choose what you want the machine to do when done cloning: `-pa poweroff`
 
-:godmode: This can get more complicated if you have a stack of identical disks with the same sizes and this procedure
-may require some tweaking to better identify source and target.
-
-Next, choose your `target` disk. In this example, there is only one option, `sda`. Your setup may differ.
-
-Clonezilla will now pull up a list of options to select from. Since we chose `Expert` we will have extra options.
-The reason why we chose expert, is because we want to select the `-k1` option in a future step. For this screen, just
-use the default selections and proceed.
-
-Next, select `-sfsck` to Skip checking the source file system. This shouldn't be necessary, unless you want to.
-
-Next, you'll see the `Clonezilla advanced extra parameters` screen. This is where you want to make sure you check `-k1`
-
-Finally, choose what you want the machine to do when completing the clone process. This is up to you, and for this
-example, we'll just choose to `-pa poweroff` to Shutdown the machine when finished.
-
-Press `ENTER` to continue. You'll most likely get warnings that you are about to overwrite data on the `target` disk.
-Say 'yes' to those warnings. Finally, it will ask if you want to clone over the boot sector, and you'll also want to say
-'yes', otherwise you won't be able to boot into your cloned OS installation on the `target` disk.
+Press `ENTER` to continue, then say `yes` to all the warnings and choosing to write over the boot sector.
 
 You should now be seeing a screen that will show you the cloning process. When finished, the machine will shutdown.
 
