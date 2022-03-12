@@ -20,10 +20,7 @@ zeroing out data on disks before recycling them, and creating bootable SD card i
 :finnadie: BACK UP IMPORTANT DATA BEFORE FOLLOWING THIS PROCEDURE!
 
 ![Windows Recovery Partition](/IMG-1910.jpg)
-![Windows Recovery Partition](/IMG-1911.jpg)
-![Windows Recovery Partition](/IMG-1912.jpg)
 
-![Windows Recovery Partition](/IMG-1892.jpg)
 
 ### Boot Into CloneZilla
 First, create a CloneZilla Live CD-ROM and boot into it via BIOS. This will differ a lot based on your hardware.
@@ -86,7 +83,54 @@ NOTE: My workstation does not have recovery partition, just delete it and expand
 
 https://www.laptopmag.com/articles/erase-recovery-partition-windows
 
+In Windows, click the Windows icon and start typing `cmd`, or type it in the search box and it will pull up
+"Command Prompt". Right-click it and select "Run as Administrator.
 
+In command line, enter the command "diskpart" and press `ENTER`. This will drop you into the diskpart command line
+application. Type in `list disk` to see what you're working with.
+
+:finnadie: Again, be careful here. You should know which disk is the one you want to select to work with.
+
+In this example, I only have one disk connected to the machine, which is `Disk 0`. This disk has two partitions, the
+main C:\ and the "Windows Recovery" partition that I want to get rid of.
+
+Enter in `select disk 0`.
+
+```
+DISKPART> select disk 0
+
+Disk 0 is now the selected disk.
+```
+
+To see its partitions, enter `list partition`
+
+```
+Partition ###   Type        Size        Offset
+-------------   -------     ------      -------
+Partition 1     Primary     118 GB      1024 KB
+Partition 2     Recovery    114 GB       118 GB
+```
+
+It is clear from the program output that the Recovery partition is `Partition 2`.
+
+Type `select partition 2`, this will most likely be different in your case, so be careful and pay attention to the
+readout.
+
+Type `delete partition override` to erase the partition.
+
+Finally, go back into Window's Disk Management program. You should now see that the sector on disk is Unallocated,
+meaning it is dead space that the system cannot use. In short, the OS cannot write or read from this area of disk. We
+need to Right-Click on the C:\ drive, or whichever you have in your case, and select "Extend Volume..."
+
+This will open up an "Extend Volume Wizard". Configure the settings however you wish, but in most cases you will want to
+use the default allocation settings to just use the entire Unallocated Volume size.
+
+![Extend Volume](/Screenshot 2022-03-12 134009.png)
+
+After running the Wizard, you should see your volume is now utilizing the full size of your disk within a single volume.
+
+:godmode: The Extend Volume function only works for volumes that are adjacent to the volume that is being extended. If
+your partitions are all over the place, you may need to use more advanced tools.
 
 
 ```bash
