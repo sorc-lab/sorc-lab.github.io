@@ -1,40 +1,41 @@
 [![Sorc Lab](/SorcLabLogo_White.png)](https://sorc-lab.github.io/)
 
-# Disk Utils
-Procedures covering common use cases, such as cloning an existing OS install from a small drive to a larger drive,
-zeroing out data on disks before recycling them, and creating bootable SD card images for Respberry Pi devices.
+# Cloning Disks Using Clonezilla
+Clonezilla is an image that you can boot into at startup time that comes with a wide variety of disk tools. This
+procedure details steps to clone one disk to another, assuming the source disk is smaller or the same size as the
+target disk. You will be turning your PC into a disk cloning machine.
 
-
-- [Cloning Disks](#cloning-disks)
-- Zeroing Disks
-- Creating SD Card Images
-
-
-## Cloning Disks
-:heavy_check_mark: Software: CloneZilla (bootable CD-ROM: CloneZilla Live 2.6.6-15 ISO)\
-:heavy_check_mark: OS: Windows 10 (free version)\
+:heavy_check_mark: CloneZilla (bootable CD-ROM: CloneZilla Live 2.6.6-15 ISO)\
+:heavy_check_mark: Windows 10 (free/unactivated)\
 :heavy_check_mark: Source Disk: SSD (C:\\) 118 GB\
 :heavy_check_mark: Target Disk: HDD (E:\\) 232 GB\
-:heavy_check_mark: Official CloneZilla project documentation: [CloneZilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
+
+Official CloneZilla project documentation: [Clonezilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
 
 :finnadie: BACK UP IMPORTANT DATA BEFORE FOLLOWING THIS PROCEDURE!
 
-![Windows Recovery Partition](/IMG-1910.jpg)
+![Disk Hardware SATA Connections](/IMG-1910.jpg)
 
 
-### Boot Into CloneZilla
-First, create a CloneZilla Live CD-ROM and boot into it via BIOS. This will differ a lot based on your hardware.
-Creating the live CD-ROM is out of the scope of this procedure and can be referenced in the official CloneZilla docs
-above.
+## Boot Into Clonezilla
+First, create a Clonezilla Live CD-ROM and boot into it via BIOS. This will differ a lot based on your hardware.
+Creating the live CD-ROM is out of the scope of this procedure. Please follow the official docs to get. Clonezilla has
+bootable USB options as well, which may be preferred.
 
-:godmode: It is recommended to create a bootable USB drive for CloneZilla, but I prefer the CD because I already have one made.
+Once Clonezilla boots to the splash screen choose `Default settings, VGA 800x600` or whatever you'd like.
 
-Once CloneZilla Live boots to the splashscreen choose `Default settings, VGA 800x600` or whatever you'd like.
+![Clonezilla Splash Screen](/ocs-01-bootmenu.png)
 
 Next, select your language and keyboard layout, similarly to how you would install a Linux distro. Select `Start_Clonezilla`,
-not the shell. Then, select `device-device` from the list of options. Finally, choose `Expert` mode.
+not the shell. Then, select `device-device` from the list of options.
 
-Choose `disk_to_local_disk`.
+
+
+![Choose device-device](/ocs-05-2-device-device-clone.png)
+
+On the next screen, choose `Expert` mode. This will be important later to get access to more options.
+
+Next, choose `disk_to_local_disk`. Then you will be shown a screen with your actual disks displayed.
 
 :finnadie: WARNING: Make sure you choose the correct `source` disk here! This is the disk you want to clone.
 
@@ -69,30 +70,29 @@ Say 'yes' to those warnings. Finally, it will ask if you want to clone over the 
 You should now be seeing a screen that will show you the cloning process. When finished, the machine will shutdown.
 
 
-### Expanding Disk Partition (Windows)
+## Expanding Disk Volume
 Even with the "Expert" option `-k1`, after booting into the new (larger) disk, the full size of disk shows only 118GB.
 This is because the Windows 10 `source` disk we used has a Windows Recovery Partition.
 
-
 ![Windows Recovery Partition](/Screenshot 2022-03-08 133142.png)
 
-The Windows Recovery partition is way bigger than it should be. On the `source` disk, that partion size is only 520MB.\
-Why did the clone to `target` make that partition so much larger? How to fix this?
-
-NOTE: My workstation does not have recovery partition, just delete it and expand the C:\ partition out into that sector.
-
-https://www.laptopmag.com/articles/erase-recovery-partition-windows
+The Windows Recovery partition is way bigger than it should be. On the `source` disk, that partition size is only 520MB.
+I am not sure why this is the case, but in my experience, I have not needed to recover Windows or experienced a
+corrupted OS install since the early 2000s. I always keep my data backed up to cloud storage, so if my Windows install
+becomes corrupted, I would re-install and download my backup data. I would never use the recovery partition to do this,
+but that is my preference. Do this at your own risk. I am happy to take this risk in order to get the extra hard drive
+space.
 
 In Windows, click the Windows icon and start typing `cmd`, or type it in the search box and it will pull up
 "Command Prompt". Right-click it and select "Run as Administrator.
 
-In command line, enter the command "diskpart" and press `ENTER`. This will drop you into the diskpart command line
+In command line, enter the command `diskpart` and press `ENTER`. This will drop you into the diskpart command line
 application. Type in `list disk` to see what you're working with.
 
 :finnadie: Again, be careful here. You should know which disk is the one you want to select to work with.
 
 In this example, I only have one disk connected to the machine, which is `Disk 0`. This disk has two partitions, the
-main C:\ and the "Windows Recovery" partition that I want to get rid of.
+primary `C:\` and the "Windows Recovery" partition that I want to get rid of.
 
 Enter in `select disk 0`.
 
@@ -118,9 +118,9 @@ readout.
 
 Type `delete partition override` to erase the partition.
 
-Finally, go back into Window's Disk Management program. You should now see that the sector on disk is Unallocated,
+Finally, go back into Windows Disk Management program. You should now see that the sector on disk is Unallocated,
 meaning it is dead space that the system cannot use. In short, the OS cannot write or read from this area of disk. We
-need to Right-Click on the C:\ drive, or whichever you have in your case, and select "Extend Volume..."
+need to Right-Click on the `C:\` drive, or whichever you have in your case, and select `Extend Volume...`
 
 This will open up an "Extend Volume Wizard". Configure the settings however you wish, but in most cases you will want to
 use the default allocation settings to just use the entire Unallocated Volume size.
