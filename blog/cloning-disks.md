@@ -14,7 +14,7 @@ temporarily turning your PC into a disk cloning machine.
 :heavy_check_mark: Source Disk: SSD (C:\\) 118 GB\
 :heavy_check_mark: Target Disk: HDD (E:\\) 232 GB
 
-:sparkles: Official CloneZilla project documentation:
+:sparkles: Official Clonezilla project documentation:
 [Clonezilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
 
 ![Disk Hardware SATA Connections](/blog/assets/cloning-disks/cloning-disks-setup.jpg)
@@ -108,15 +108,6 @@ use the default allocation settings to use the entire Unallocated Volume size.
 After running the Wizard, you should see your volume is now utilizing the full size of your disk within a single volume.
 
 :sparkles: The Extend Volume function only works for volumes that are adjacent.
-
-
-
-```bash
-/etc/systemd/system/network-online.targets.wants/networking.service
-sudo vi /etc/systemd/system/network-online.targets.wants/networking.service
-21:TimeoutStartSec=5min
-sudo systemctl daemon-reload
-```
 
 ---
 Sorc Lab, LLC. All Rights Reserved. Anyone is permitted to copy and distribute verbatim copies of this document under
