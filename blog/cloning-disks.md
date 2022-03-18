@@ -8,7 +8,7 @@ temporarily turning your PC into a disk cloning machine.
 :skull: BACK UP IMPORTANT DATA BEFORE FOLLOWING THIS PROCEDURE!
 
 
-## Tools (your setup may differ)
+## Setup
 :heavy_check_mark: Clonezilla (bootable CD-ROM: CloneZilla Live 2.6.6-15 ISO)\
 :heavy_check_mark: Windows 10 (free/unactivated)\
 :heavy_check_mark: Source Disk: SSD (C:\\) 118 GB\
@@ -17,7 +17,7 @@ temporarily turning your PC into a disk cloning machine.
 :sparkles: Official CloneZilla project documentation:
 [Clonezilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
 
-![Disk Hardware SATA Connections](/IMG-1910.jpg)
+![Disk Hardware SATA Connections](/blog/assets/cloning-disks/cloning-disks-setup.jpg)
 
 
 ## Boot Into Clonezilla
@@ -27,13 +27,13 @@ bootable USB options as well, which may be preferred.
 
 Once Clonezilla boots to the splash screen choose `Default settings, VGA 800x600` or whatever is preferred.
 
-![Clonezilla Splash Screen](/ocs-01-bootmenu.png)
+![Clonezilla Splash Screen](/blog/assets/cloning-disks/ocs-01-bootmenu.png)
 
 Next, select your language and keyboard layout, similarly to how you would install a Linux distro.
 - Select `Start_Clonezilla`
 - Select `device-device`
 
-![Choose device-device](/ocs-05-2-device-device-clone.png)
+![Choose device-device](/blog/assets/cloning-disks/ocs-05-2-device-device-clone.png)
 
 - Choose `Expert` mode. This will be important later to get access to more options.
 - Choose `disk_to_local_disk`. Then you will be shown a screen with your actual disks displayed.
@@ -62,7 +62,7 @@ This section details steps to remove that to utilize the full size of your disk 
 Open Windows disk management tool via opening Windows search tool and searching `disk management` and selecting
 `Create and format hard disk partitions`.
 
-![Windows Recovery Partition](/Screenshot 2022-03-08 133142.png)
+![Windows Recovery Partition](/blog/assets/cloning-disks/Screenshot-2022-03-08-133142.png)
 
 In Windows search tool, type `cmd` to open the "Command Prompt". Right-click it and select "Run as Administrator.
 
@@ -103,7 +103,7 @@ need to Right-Click on the `C:\` drive, or whichever you have in your case, and 
 This will open up an "Extend Volume Wizard". Configure the settings however you wish, but in most cases you will want to
 use the default allocation settings to use the entire Unallocated Volume size.
 
-![Extend Volume](/Screenshot 2022-03-12 134009.png)
+![Extend Volume](/blog/assets/cloning-disks/Screenshot-2022-03-12-134009.png)
 
 After running the Wizard, you should see your volume is now utilizing the full size of your disk within a single volume.
 
