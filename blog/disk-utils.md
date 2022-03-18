@@ -105,7 +105,7 @@ use the default allocation settings to use the entire Unallocated Volume size.
 
 After running the Wizard, you should see your volume is now utilizing the full size of your disk within a single volume.
 
-:sparkles: The Extend Volume function only works for volumes that are adjacent to the volume that is being extended.
+:sparkles: The Extend Volume function only works for volumes that are adjacent.
 
 
 
