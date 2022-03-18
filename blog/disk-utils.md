@@ -7,13 +7,15 @@ temporarily turning your PC into a disk cloning machine.
 
 :skull: BACK UP IMPORTANT DATA BEFORE FOLLOWING THIS PROCEDURE!
 
+
 ## Tools (your setup may differ)
 :heavy_check_mark: Clonezilla (bootable CD-ROM: CloneZilla Live 2.6.6-15 ISO)\
 :heavy_check_mark: Windows 10 (free/unactivated)\
 :heavy_check_mark: Source Disk: SSD (C:\\) 118 GB\
 :heavy_check_mark: Target Disk: HDD (E:\\) 232 GB
 
-Official CloneZilla project documentation: [Clonezilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
+:sparkles: Official CloneZilla project documentation:
+[Clonezilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
 
 ![Disk Hardware SATA Connections](/IMG-1910.jpg)
 
@@ -28,13 +30,13 @@ Once Clonezilla boots to the splash screen choose `Default settings, VGA 800x600
 ![Clonezilla Splash Screen](/ocs-01-bootmenu.png)
 
 Next, select your language and keyboard layout, similarly to how you would install a Linux distro.
-:one: Select `Start_Clonezilla`\
-:two: Select `device-device`
+- Select `Start_Clonezilla`
+- Select `device-device`
 
 ![Choose device-device](/ocs-05-2-device-device-clone.png)
 
-:one: Choose `Expert` mode. This will be important later to get access to more options.\
-:two: Choose `disk_to_local_disk`. Then you will be shown a screen with your actual disks displayed.
+- Choose `Expert` mode. This will be important later to get access to more options.
+- Choose `disk_to_local_disk`. Then you will be shown a screen with your actual disks displayed.
 
 :skull: WARNING: Make sure you choose the correct `source` disk here! This is the disk you want to clone from.
 
@@ -43,10 +45,10 @@ Next, select your language and keyboard layout, similarly to how you would insta
 /dev/sdb: M4-CT128M4SSD2_ M4-CT128M4SSD2_00000000114708FF31FE 128GB
 ```
 
-:one: Choose your `target` disk. In this example, there is only one option, `sda`. Your setup may differ.\
-:two: Select `-sfsck`\
-:three: Check `-k1` from the advanced options and keep the default selections\
-:four: Choose `-pa poweroff` to shutdown machine when finished cloning
+- Choose your `target` disk. In this example, there is only one option, `sda`. Your setup may differ.
+- Select `-sfsck`
+- Check `-k1` from the advanced options and keep the default selections
+- Choose `-pa poweroff` to shutdown machine when finished cloning
 
 Press `ENTER` to continue, then "yes" to all warnings and "yes" to write over boot sector.
 
@@ -91,8 +93,8 @@ Partition 2     Recovery    114 GB       118 GB
 
 It is clear from the program output that the Recovery partition is `Partition 2`.
 
-:one: Type `select partition 2`, assuming it is the `Recovery` partition, yours may differ\
-:two: Type `delete partition override` to erase the partition
+- Type `select partition 2`, assuming it is the `Recovery` partition, yours may differ
+- Type `delete partition override` to erase the partition
 
 Finally, go back into Windows Disk Management program. You should now see that the sector on disk is Unallocated,
 meaning it is dead space that the system cannot use. In short, the OS cannot write or read from this area of disk. We
