@@ -29,10 +29,15 @@ Change `TimeoutStartSec` setting in `/etc/systemd/system/network-online.targets.
 
 ## Burning SD Card Image
 DD Copy will run a bit-by-bit copy of any `.img` file to the SD card. This is much simpler and with less
-features than [using Clonezilla to write images to disk](/blog/cloning-disks.md).
+features than [using Clonezilla to write images to disk](https://sorc-lab.github.io/blog/dd-copy.html).
 
 
 ### Locate the SD Card Volume
+```
+TODO: Get rid off all the df -h stuff here. fdisk is far better and needs to be used for both mounting usb sticks and
+        id'ing SD cards
+```
+
 Before inserting the SD card, run `df -h` to see what volumes are currently mounted. Your output will differ.
 ```
 Filesystem                              Size    Used    Avail   Use%    Mounted On
@@ -53,8 +58,13 @@ However, when you insert the SD card the terminal may output something similar t
 [   40.566936] sd 6:0:0:0: [sdb] No Caching mode page found
 [   40.566973] sd 6:0:0:0: [sdb] Assuming drive cache: write through
 ```
-
 :sparkles: It is strange the SD card does not show up in `df -h`, but it is detected as `sdb`
+
+A better way to find out which volume the SD card is allocated to, is to run `sudo fdisk -l | more`
+This will output all volumes and partitions regardless if they are mounted or not.
+
+Run the `fdisk` command before and after inserting the SD card to clearly determine which volume is being used for it.
+
 
 ### Unmount the SD Card Device
 Normally, if the SD card shows up in `df -h`, that means it is mounted. If you see it in the list, go ahead and unmount
@@ -75,7 +85,8 @@ device name you want to use when running DD Copy.
 :skull: Get the correct device name, or you may start writing bits to something like your main hard drive!
 
 In our example, we already have the raw device name `/dev/sdb` and it is already unmounted. Linux never mounted it when
-we inserted the SD card.
+we inserted the SD card. Again, use `fdisk` command to get a more detailed list of volumes. **The raw device name will
+be something like `sda` or `sdb`, not something like `sdc1` etc.**
 
 
 ### Download Desired OS (if connected to the internet)
@@ -93,6 +104,8 @@ If using a Linux terminal, follow the procedure for mounting and writing the ima
 
 
 ### Mount OS Image to USB (Linux)
+TODO: Follow docs from https://github.com/sorc-lab/gitlab-lfs#optional-copy-files-to-external-drive-usb
+TODO: Update the `df-h` section to instead use `sudo fdisk -l` for a much better way of detecting the SD card.
 
 
 
