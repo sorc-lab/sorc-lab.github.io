@@ -1,4 +1,4 @@
-[![Sorc Lab](/SorcLabLogo_White.png)](https://sorc-lab.github.io/)
+[![Sorc Lab](/SorcLabLogo_White.png)](https://sorclab.com/)
 
 # Cloning Disks
 Clonezilla is an OS that you can boot into with a wide variety of disk tools. This procedure details steps to clone one
