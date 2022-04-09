@@ -1,4 +1,4 @@
-[![Sorc Lab](/SorcLabLogo_White.png)](https://sorc-lab.github.io/)
+[![Sorc Lab](/SorcLabLogo_White.png)](https://sorclab.com/)
 
 # DD Copy
 Most Linux distros come with a program called `dd`. This tool can be used to mount an SD card and write binary copies of
