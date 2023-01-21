@@ -17,8 +17,6 @@ temporarily turning your PC into a disk cloning machine.
 :sparkles: Official Clonezilla project documentation:
 [Clonezilla project](https://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/03_Disk_to_disk_clone)
 
-![Disk Hardware SATA Connections](/blog/assets/cloning-disks/cloning-disks-setup.jpg)
-
 
 ## Boot Into Clonezilla
 First, create a Clonezilla Live CD-ROM and boot into it via BIOS settings. This will differ a lot based on your hardware.
