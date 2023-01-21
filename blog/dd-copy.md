@@ -10,8 +10,6 @@ images to the SD card, like a Raspberry Pi OS.
 I've gutted an old Gateway laptop to serve as a dedicated SD card image burner, running Ubuntu (Linux). The sole purpose
 of this machine is to burn SD card images for Raspberry Pis to boot.
 
-![Old Laptop SD Card Burner](/blog/assets/dd-copy/dd-copy-setup.jpg)
-
 :crystal_ball: See the SD card port in the bottom left.
 
 
