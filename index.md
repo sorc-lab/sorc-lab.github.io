@@ -11,6 +11,18 @@
 <script>
     var statusElem = document.getElementById("statusBox");
 
+    function calculateAverage(numbers) {
+        if (numbers.length === 0) {
+            return 0;
+        }
+        var sum = 0;
+        for (var i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        var average = sum / numbers.length;
+        return average;
+    }
+
     function updateStatus() {
         var numbers = [58, 75, 45, 0];
         var average = calculateAverage(numbers);
