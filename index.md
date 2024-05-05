@@ -9,6 +9,19 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var statusBox = document.querySelector(".status-box");
+        console.log(statusBox);
+
+        var statusBox = document.querySelector(".status-box");
+        console.log(statusBox);
+
+        var numbers = [58, 75, 45, 0];
+        var average = calculateAverage(numbers);
+
+        console.log("The average is: " + average);
+        statusBox.textContent = average;
+    });
     
 
     function calculateAverage(numbers) {
@@ -22,17 +35,6 @@
         var average = sum / numbers.length;
         return average;
     }
-
-    function updateStatus() {
-        var statusElem = document.getElementById("statusBox");
-        var numbers = [58, 75, 45, 0];
-        var average = calculateAverage(numbers);
-
-        console.log("The average is: " + average);
-        statusElem.textContent = average;
-    }
-
-    updateStatus();
 
     // setTimeout(function() {
     //     updateStatusBox("New content.");
