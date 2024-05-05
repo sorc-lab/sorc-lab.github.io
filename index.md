@@ -9,7 +9,7 @@
 </div>
 
 <script>
-    var statusElem = document.getElementById("statusBox");
+    
 
     function calculateAverage(numbers) {
         if (numbers.length === 0) {
@@ -24,11 +24,12 @@
     }
 
     function updateStatus() {
+        var statusElem = document.getElementById("statusBox");
         var numbers = [58, 75, 45, 0];
         var average = calculateAverage(numbers);
 
         console.log("The average is: " + average);
-        statusBox.textContent = average;
+        statusElem.textContent = average;
     }
 
     updateStatus();
