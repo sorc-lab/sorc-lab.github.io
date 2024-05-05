@@ -19,6 +19,8 @@
         statusBox.textContent = average;
     }
 
+    updateStatus();
+
     // setTimeout(function() {
     //     updateStatusBox("New content.");
     // }, 3000);
