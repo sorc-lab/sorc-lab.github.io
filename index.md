@@ -16,11 +16,10 @@
         var statusBox = document.querySelector(".status-box");
         console.log(statusBox);
 
-        var numbers = [58, 75, 45, 0];
+        var numbers = [58, 75, 45, 0, 55, 36, 73, 55, 27, 73, 45, 64, 73, 45, 91, 45, 18, 27];
         var average = calculateAverage(numbers);
 
-        console.log("The average is: " + average);
-        statusBox.textContent = average;
+        statusBox.textContent = "MAINTENANCE MODE, SYSTEM: " + average;
     });
     
 
