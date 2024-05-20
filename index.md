@@ -19,7 +19,7 @@
         var numbers = [58, 75, 45, 0, 55, 36, 73, 55, 27, 73, 45, 64, 73, 45, 91, 45, 18, 27];
         var average = calculateAverage(numbers);
 
-        statusBox.textContent = "MAINTENANCE MODE, SYSTEM: " + average;
+        statusBox.textContent = "MAINTENANCE MODE, SYSTEM: " + average + "%";
     });
     
 
