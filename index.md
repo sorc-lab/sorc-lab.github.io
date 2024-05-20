@@ -11,15 +11,16 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var statusBox = document.querySelector(".status-box");
-        console.log(statusBox);
+        //console.log(statusBox);
 
         var statusBox = document.querySelector(".status-box");
-        console.log(statusBox);
+        //console.log(statusBox);
 
         var numbers = [58, 75, 45, 0, 55, 36, 73, 55, 27, 73, 45, 64, 73, 45, 91, 45, 18, 27];
         var average = calculateAverage(numbers);
 
-        statusBox.textContent = "MAINTENANCE MODE, SYSTEM: " + average + "%";
+        //statusBox.textContent = "MAINTENANCE MODE, SYSTEM: " + average + "%";
+        statusBox.innerHTML = "MAINTENANCE MODE<br>SYSTEM: " + average + "%";
     });
     
 
@@ -32,7 +33,8 @@
             sum += numbers[i];
         }
         var average = sum / numbers.length;
-        return average;
+        //return average;
+        return parseFloat(average.toFixed(2));
     }
 
     // setTimeout(function() {
