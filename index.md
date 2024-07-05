@@ -21,7 +21,7 @@
 
         //statusBox.textContent = "MAINTENANCE MODE, SYSTEM: " + average + "%";
         //statusBox.innerHTML = "MAINTENANCE MODE<br>SYSTEM: " + 36.19 + "%";
-        statusBox.innerHTML = "SYSTEM: " + 32.5 + "%";
+        statusBox.innerHTML = "SYSTEM: " + 40.21 + "%";
     });
     
 
