@@ -100,6 +100,12 @@ If using a GUI based OS, like Windows or MacOS, drag and drop the OS `raspbian_l
 
 If using a Linux terminal, follow the procedure for mounting and writing the image to the USB stick.
 
+### DD Copy Image to SD Card
+Do not copy/paste this command. The command arguments need to be specific to your devices:
+`sudo dd if=~/path/to/your_image.img of=/dev/your_sd_card_device`
+
+NOTE: It may take a long time to flash the image to SD card and no progress will be displayed during DD copy command execution.
+
 
 ### Mount OS Image to USB (Linux)
 TODO: Follow docs from https://github.com/sorc-lab/gitlab-lfs#optional-copy-files-to-external-drive-usb
