@@ -87,3 +87,7 @@ Copy/paste the following `launch.json` and save the file:
 ```
 
 You should now be able to set break points and press `F5` to run the debugger and step over and into via `F10` and `F11` etc.
+You can dive in and out of the terminal via:
+```
+Ctrl+`
+```
